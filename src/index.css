@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+
+@layer base {
+  * { -webkit-tap-highlight-color: transparent; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #fff5f8;
+    color: #2a1520;
+    overscroll-behavior: none;
+  }
+  h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; }
+}
+
+@layer utilities {
+  .card {
+    @apply bg-white rounded-3xl shadow-sm border border-pink-50 p-5;
+  }
+  .card-gradient {
+    @apply rounded-3xl p-5;
+    background: linear-gradient(135deg, #fde8f0 0%, #fdf0e0 100%);
+  }
+  .btn-primary {
+    @apply w-full py-4 rounded-2xl font-semibold text-white text-base tracking-wide transition-all duration-200 active:scale-95;
+    background: linear-gradient(135deg, #e8637a 0%, #d4486a 100%);
+    box-shadow: 0 4px 20px rgba(212, 72, 106, 0.35);
+  }
+  .btn-secondary {
+    @apply w-full py-4 rounded-2xl font-semibold text-[#2a1520] text-base bg-white border border-pink-100 transition-all duration-200 active:scale-95;
+  }
+  .input {
+    @apply w-full bg-white rounded-2xl px-4 py-4 text-sm border border-pink-100 focus:outline-none focus:ring-2 focus:ring-pink-200 transition-all;
+  }
+  .bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 bg-white border-t border-pink-50 flex items-center justify-around px-2 py-3 z-50;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+  .page-container {
+    @apply px-5 pt-6 pb-28 max-w-lg mx-auto;
+  }
+  .label {
+    @apply text-xs font-semibold uppercase tracking-widest text-[#b8829a];
+  }
+}
+
+/* Gradient backgrounds */
+.bg-blush { background: linear-gradient(160deg, #fff0f5 0%, #fff8f0 100%); }
+.bg-hero { background: linear-gradient(135deg, #fde0ea 0%, #fdecd0 100%); }
+.bg-dark { background: #2a1520; }
+
+/* Scrollbar hide */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.4s ease forwards; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
